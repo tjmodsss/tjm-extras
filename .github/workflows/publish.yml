@@ -1,0 +1,25 @@
+name: publish catalog
+# Builds the `catalog` release the TJM Store reads: the pinned upstream files of mirror.json (checked by sha256),
+# with the four apps renamed TJM and given TJM icons. Run it by hand (Actions > publish catalog > Run workflow)
+# after changing mirror.json or an icon.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: build
+        run: python3 tools/build_catalog.py --repo "$GH_REPO" --out out
+      - name: release
+        run: |
+          gh release view catalog >/dev/null 2>&1 || gh release create catalog --title "TJM extras catalog" --notes "Read by the TJM Store. Built by the publish catalog workflow."
+          gh release upload catalog out/* --clobber
