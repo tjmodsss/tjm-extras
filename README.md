@@ -1,17 +1,18 @@
 # TJM Extras
 
 The TJM Store's source for the apps whose native parts are built by their own authors: they are not rebuilt here,
-the pinned upstream files are mirrored into this repo's `catalog` release, and the four apps are shown as TJM apps.
+the pinned upstream files are mirrored into this repo's `catalog` release, and the five apps are shown as TJM apps.
 
 | TJM app | Based on | License |
 |---|---|---|
 | TJM Moonride | [JustAnotherPU/moonride](https://github.com/JustAnotherPU/moonride) | see `LICENSES/` |
 | TJM RideWatch | [JustAnotherPU/ridewatch](https://github.com/JustAnotherPU/ridewatch) | see `LICENSES/` |
 | TJM RideTube | [JustAnotherPU/ridetube](https://github.com/JustAnotherPU/ridetube) | see `LICENSES/` |
+| TJM CarTube | [TheoneLT83/CarTube](https://github.com/TheoneLT83/CarTube) | see `LICENSES/` |
 | TJM Browser | [pllanaio/mgu-browser](https://github.com/pllanaio/mgu-browser) | see `LICENSES/` |
 
 Also mirrored unchanged, as the apps need them: `jap-node22`, `jap-moonride`, `jap-ridewatch`, `jap-ridetube-d`,
-`mgu-browser-engine`, `mgu-browser`.
+`mgu-browser-engine`, `mgu-browser`, `cartube-d`, `cartube-node22`.
 
 - `mirror.json`: every upstream entry, pinned by version and sha256, and the TJM name and icon of each app.
 - `icons/`: the TJM icons.
